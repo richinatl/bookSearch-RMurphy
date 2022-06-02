@@ -1,4 +1,4 @@
-import gql from "@apollo/client";
+import { gql } from "@apollo/client";
 
 // first two taken from activity 26
 export const LOGIN_USER = gql`

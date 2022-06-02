@@ -56,24 +56,36 @@ const SavedBooks = () => {
     }
 
     try {
-      const response = await removeBook({
-        variables: { bookId: bookId },
+      await removeBook({
+        variables: { bookId },
       });
 
-      if (!response) {
-        throw new Error("something went wrong!");
-      }
-
-      removeBookId(bookId);
-
-      const updatedUser = await response.json();
-      setUserData(updatedUser);
       // upon success, remove book's id from localStorage
       removeBookId(bookId);
     } catch (err) {
       console.error(err);
     }
   };
+
+  // try {
+  //   const response = await removeBook({
+  //     variables: { bookId: bookId },
+  //   });
+
+  //   if (!response) {
+  //     throw new Error("something went wrong!");
+  //   }
+
+  //   removeBookId(bookId);
+
+  // const updatedUser = await response.json();
+  // setUserData(updatedUser);
+  // upon success, remove book's id from localStorage
+  //     removeBookId(bookId);
+  //   } catch (err) {
+  //     console.error(err);
+  //   }
+  // };
 
   // if data isn't here yet, say so
   if (loading) {
