@@ -27,7 +27,7 @@ if (process.env.NODE_ENV === "production") {
 
 // app.use(routes);
 
-app.get("*", (req, res) => {
+app.get("/", (req, res) => {
   app.use(express.static(path.join(__dirname, "../client/build/index.html")));
 });
 
